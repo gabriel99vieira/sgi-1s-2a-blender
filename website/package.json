@@ -1,0 +1,23 @@
+{
+  "dependencies": {
+    "express": "^4.17.1",
+    "three": "^0.134.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.14"
+  },
+  "scripts": {
+    "start": "node server.js localhost"
+  },
+  "name": "website",
+  "version": "1.0.0",
+  "main": "server.js",
+  "directories": {
+    "doc": "docs",
+    "example": "example"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}
