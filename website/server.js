@@ -4,7 +4,21 @@ const serveIndex = require("serve-index");
 const app = express();
 
 app.use((request, response, next) => {
-    console.log("Time: ", Date.now());
+    let date = new Date();
+    console.log(
+        "Time: " +
+            date.getDay() +
+            "-" +
+            date.getMonth() +
+            "-" +
+            date.getFullYear() +
+            " " +
+            date.getHours() +
+            "h" +
+            date.getMinutes() +
+            "m" +
+            date.getSeconds()
+    );
     next();
 });
 
@@ -21,5 +35,5 @@ app.use("/", serveIndex("public"));
 // });
 
 app.listen(8000, "127.0.0.1", () => {
-    console.log("Listening on port 8000.");
+    console.log("Listening on port 8000. (http://127.0.0.1:8000)");
 });
