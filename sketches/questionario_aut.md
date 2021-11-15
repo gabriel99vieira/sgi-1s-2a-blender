@@ -34,11 +34,23 @@ O questionário deverá responder ás seguintes questões
             <li>Feminino</li>
             <li>Outro</li>
         </ul>
+    <li>Como nos conheceu?</li>
+        <ul>
+            <li>Naveguei na internet</li>
+            <li>Por um amigo</li>
+            <li>Por uma publicidade</li>
+            <li>Outro: ______________</li>
+        </ul>
     <li>Com que frequência visita o site?</li>
         <ul>
             <li>Raramente</li>
             <li>Casualmente</li>
             <li>Bastante</li>
+        </ul>
+    <li>Sente-se confortável a utilizar o site?</li>
+        <ul>
+            <li>Sim</li>
+            <li>Não</li>
         </ul>
     <li>Quando pesquisa é para si ou para outrém?</li>
         <ul>
@@ -58,26 +70,6 @@ O questionário deverá responder ás seguintes questões
             <li>Ás vezes</li>
             <li>Não</li>
         </ul>
-    <li>Em que dispositivos normalmente usa o site?</li>
-        <ul>
-            <li>Smartphone</li>
-            <li>Computador</li>
-            <li>Tablet</li>
-            <li>Televisão</li>
-            <li>Foldable</li>
-        </ul>
-    <li>Sente-se confortável a utilizar o site?</li>
-        <ul>
-            <li>Sim</li>
-            <li>Não</li>
-        </ul>
-    <li>Como nos conheceu?</li>
-        <ul>
-            <li>Naveguei na internet</li>
-            <li>Por um amigo</li>
-            <li>Por uma publicidade</li>
-            <li>Outro: ______________</li>
-        </ul>
     <li>Procura o site apenas quando precisa de algo?</li>
         <ul>
             <li>Sim</li>
@@ -90,6 +82,14 @@ O questionário deverá responder ás seguintes questões
             <li>Eletrodomésticos</li>
             <li>Decoração</li>
             <li>etc...</li>
+        </ul>
+    <li>Em que dispositivos normalmente usa o site?</li>
+        <ul>
+            <li>Smartphone</li>
+            <li>Computador</li>
+            <li>Tablet</li>
+            <li>Televisão</li>
+            <li>Foldable</li>
         </ul>
     <li>Encontrou alguma dificuldade a navegar no site?</li>
         <ul>
