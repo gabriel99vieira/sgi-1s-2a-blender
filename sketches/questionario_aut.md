@@ -1,5 +1,7 @@
 # Análise de Utilizadores e Tarefas ( La Redoute )
 
+## [Link do Questionário](https://google.com)
+
 ## Propósito
 
 O questionário deverá responder ás seguintes questões
@@ -43,9 +45,9 @@ O questionário deverá responder ás seguintes questões
         </ul>
     <li>Com que frequência visita o site?</li>
         <ul>
-            <li>Raramente</li>
-            <li>Casualmente</li>
-            <li>Bastante</li>
+            <li>Raramente - apenas quando quero comprar</li>
+            <li>Casualmente - para ver e comprar</li>
+            <li>Bastante - para estar a par dos descontos</li>
         </ul>
     <li>Sente-se confortável a utilizar o site?</li>
         <ul>
