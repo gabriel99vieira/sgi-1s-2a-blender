@@ -34,3 +34,9 @@
     dark and light -> [check](https://dev.to/wendell_adriel/working-with-multiple-css-themes-5aej)
 
 -   smooth scrolling [check](https://www.npmjs.com/package/smooth-scroll)
+
+# Lista de produtos
+
+-   mais espaço entre os produtos
+
+-
