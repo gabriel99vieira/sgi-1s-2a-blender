@@ -25,10 +25,12 @@ O questionário deverá responder ás seguintes questões
 <ol>
     <li>Qual sua idade?</li>
         <ul>
-            <li>Menos de 25 anos</li>
-            <li>Entre 25 e 35 anos</li>
-            <li>Entre 35 e 50 anos</li>
-            <li>Mais que 50 anos</li>
+            <li>Menos de 18 anos</li>
+            <li>Entre 19 e 25 anos</li>
+            <li>Entre 26 e 35 anos</li>
+            <li>Entre 36 e 45 anos</li>
+            <li>Entre 46 e 60 anos</li>
+            <li>Mais que 60 anos</li>
         </ul>
     <li>Qual o seu sexo?</li>
         <ul>
@@ -54,10 +56,10 @@ O questionário deverá responder ás seguintes questões
             <li>Sim</li>
             <li>Não</li>
         </ul>
-    <li>Quando pesquisa é para si ou para outrém?</li>
+    <li>Normalmente, para quem são os produtos que procura?</li>
         <ul>
-            <li>Sim</li>
-            <li>Não</li>
+            <li>Para mim</li>
+            <li>Para outrem</li>
         </ul>
     <li>O quão fácil acha a navegação no site?</li>
         <ul>
@@ -69,6 +71,7 @@ O questionário deverá responder ás seguintes questões
     <li>Quando nos visita encontra o que procura?</li>
         <ul>
             <li>Sempre</li>
+            <li>Quase sempre</li>
             <li>Ás vezes</li>
             <li>Não</li>
         </ul>
