@@ -5,20 +5,7 @@ const app = express();
 
 app.use((request, response, next) => {
     let date = new Date();
-    console.log(
-        "Time: " +
-            date.getDay() +
-            "-" +
-            date.getMonth() +
-            "-" +
-            date.getFullYear() +
-            " " +
-            date.getHours() +
-            "h" +
-            date.getMinutes() +
-            "m" +
-            date.getSeconds()
-    );
+    console.log(date + ": " + request.method + " - " + request.path);
     next();
 });
 

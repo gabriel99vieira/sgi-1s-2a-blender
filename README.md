@@ -20,7 +20,7 @@ sudo apt install nodejs
 
 Or install node on windows using [**this link**](https://nodejs.org)
 
-Inside the website folder run the following command to start installing the dependencies
+Inside the **`/website`** folder run the following command to start installing the dependencies
 
 ```bash
 npm i
@@ -30,13 +30,13 @@ npm i
 
 ## Running the project
 
-Inside the `/website` directory you can run the npm script to launch the local server
+Inside the **`/website`** directory you can run the npm script to launch the local server
 
 ```npm
 npm run start
 ```
 
-Now the website is accessible at [**http://127.0.0.1:8000**](http://127.0.0.1:8000) in your browser
+Now the website is accessible at [**http://127.0.0.1:8000**](http://127.0.0.1:8000) in your browser <small>[**http://localhost:8000**](http://localhost:8000)</small>
 
 <br>
 
