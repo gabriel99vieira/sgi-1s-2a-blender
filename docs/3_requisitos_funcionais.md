@@ -2,6 +2,10 @@
 
 \* Poderá não ser implementado
 
+## Comum
+
+    Haverão 4 temas para cada estação do ano
+
 ## Barra de navegação <small>_comum_</small>
 
     O utilizador poderá pesquizar com chaves (keywords)
