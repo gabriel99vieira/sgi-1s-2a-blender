@@ -4,7 +4,34 @@
 
 ## Comum
 
+[Cores](https://color.adobe.com/pt/create/color-wheel)
+
     Haverão 4 temas para cada estação do ano
+    Cs paletes serão sobre cores complementares
+
+        Outono
+        #A38164
+        #F0B686
+        #7BA1F0 - accent
+        #A39943
+        #F0E36E
+
+        Verão
+        #64A387
+        #7FF0BE
+        #F0DC7A - accent
+        #A34343
+        #F05858
+
+        Inverno
+        #A36B5F
+        #F08D78
+        #73CAF0 - accent
+        #A38F3E
+        #F0E4B5
+
+        Primavera
+        ! todo
 
 ## Barra de navegação <small>_comum_</small>
 
