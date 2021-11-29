@@ -24,16 +24,12 @@
 
 -   Usar slugs do nome do produto nos urls??
 
--   Nas palavra em cima das imagens talvéz adicionar uma borda subtil
-
-    > `text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;`
-
-    > ` --webkit-text-stroke: 0.5px #0000008c;`
-
 -   Multi color themed?
     dark and light -> [check](https://dev.to/wendell_adriel/working-with-multiple-css-themes-5aej)
 
 -   smooth scrolling [check](https://www.npmjs.com/package/smooth-scroll)
+
+-   O guia de tamanhos podia ocupar a página toda para uma maior facilidade de acesso ao utilizador
 
 # Lista de produtos
 
