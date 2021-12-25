@@ -52,10 +52,10 @@
                     var val = search.getAttribute("open");
                     if (val == "false" || val == null) {
                         search.setAttribute("open", "true");
-                        offset.forEach((element) => {
-                            element.classList.add("d-none");
-                        });
-                        search.parentElement.classList.add("w-75");
+                        // offset.forEach((element) => {
+                        //     element.classList.add("d-none");
+                        // });
+                        // search.parentElement.classList.add("w-75");
                         closeButton.classList.remove("d-none");
                         searchList.classList.remove("d-none");
                     }
@@ -77,13 +77,16 @@
                     ];
                     searchList.list.innerHTML = "";
 
+                    let count = 0;
                     if (this.value == "" || this.value == null) {
-                        for (let i = 0; i < items.length; i++) {
+                        for (let i = 0; i < items.length && count < 6; i++) {
+                            count++;
                             searchList.list.innerHTML += newListItem(firstToUpper(items[i]));
                         }
                     } else {
-                        for (let i = 0; i < items.length; i++) {
+                        for (let i = 0; i < items.length && count < 6; i++) {
                             if (items[i].includes(this.value.toLowerCase())) {
+                                count++;
                                 searchList.list.innerHTML += newListItem(firstToUpper(items[i]));
                             }
                         }
