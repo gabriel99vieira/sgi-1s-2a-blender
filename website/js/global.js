@@ -38,7 +38,68 @@
     class Navbar extends HTMLElement {
         constructor() {
             super();
-            loadInto(this, "./components/navbar.html");
+            loadInto(this, "./components/navbar.html", function () {
+                var search = document.querySelector(".search-input");
+                var offset = document.querySelectorAll(".search-offset");
+                var closeButton = document.querySelector(".search-close");
+                var searchList = document.querySelector(".search-list");
+                searchList.list = searchList.querySelector(".search-list-items");
+
+                closeButton.classList.add("d-none");
+                searchList.classList.add("d-none");
+
+                search.onclick = function () {
+                    var val = search.getAttribute("open");
+                    if (val == "false" || val == null) {
+                        search.setAttribute("open", "true");
+                        offset.forEach((element) => {
+                            element.classList.add("d-none");
+                        });
+                        search.parentElement.classList.add("w-75");
+                        closeButton.classList.remove("d-none");
+                        searchList.classList.remove("d-none");
+                    }
+                };
+                search.oninput = function () {
+                    var items = [
+                        "calções",
+                        "calças",
+                        "camisolas",
+                        "moveis",
+                        "eletrodomesticos",
+                        "interior",
+                        "decoracao",
+                        "rapaz",
+                        "rapariga",
+                        "homem",
+                        "criança",
+                        "mulher",
+                    ];
+                    searchList.list.innerHTML = "";
+
+                    if (this.value == "" || this.value == null) {
+                        for (let i = 0; i < items.length; i++) {
+                            searchList.list.innerHTML += newListItem(firstToUpper(items[i]));
+                        }
+                    } else {
+                        for (let i = 0; i < items.length; i++) {
+                            if (items[i].includes(this.value.toLowerCase())) {
+                                searchList.list.innerHTML += newListItem(firstToUpper(items[i]));
+                            }
+                        }
+                    }
+                };
+
+                closeButton.onclick = function () {
+                    search.setAttribute("open", "false");
+                    offset.forEach((element) => {
+                        element.classList.remove("d-none");
+                    });
+                    search.parentElement.classList.remove("w-75");
+                    closeButton.classList.add("d-none");
+                    searchList.classList.add("d-none");
+                };
+            });
         }
     }
     window.customElements.define("x-navbar", Navbar);
@@ -84,3 +145,13 @@
         }, 200);
     };
 })(document, window);
+
+function firstToUpper(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+}
+
+function newListItem(text) {
+    return (
+        '<li class="my-1"><a href="#" class="text-decoration-none text-dark">' + text + "</a></li>"
+    );
+}

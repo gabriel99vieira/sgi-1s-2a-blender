@@ -1,37 +1,45 @@
-<nav class="navbar navbar-light bg-light w-80" id="navbar">
+<nav class="navbar navbar-light bg-white w-80 my-2" id="navbar">
     <div class="container">
-        <div class="col-4">
-            <a class="text-dark fs-3 mx-0 mb-0 text-decoration-none" href="#">
-                <i class="bi bi-list align-text-top"></i>
-            </a>
-
-            <a class="text-dark fs-3 ms-3 text-decoration-none" href="./">
-                <img
-                    src="./images/logo.svg"
-                    alt="Laredoute logo"
-                    class="align-text-bottom"
-                    style="margin-bottom: 0.08em"
-                />
-            </a>
-        </div>
-        <div class="col-4 mx-auto">
-            <div class="input-group w-100">
+        <div class="row w-100">
+            <div class="col-3 search-offset">
+                <div class="text-dark fs-3 text-decoration-none d-inline">
+                    <i class="bi bi-list align-text-top"></i>
+                    <img
+                        src="./images/logo.svg"
+                        alt="La Redoute logo"
+                        class="ms-4 d-none d-md-inline"
+                        style="cursor: pointer"
+                        onclick="window.location.href='./'"
+                    />
+                </div>
+            </div>
+            <div class="col-6 mx-auto align-content-center">
                 <input
                     type="text"
-                    class="form-control search-radius-left"
-                    aria-labelledby="search-addon"
+                    class="form-control text-center search-input"
+                    placeholder="Pesquisar..."
                 />
-                <span class="input-group-text search-radius-right bg-white" id="search-addon"
-                    ><i class="bi bi-search"></i
-                ></span>
+                <button class="btn btn-sm btn-white border-0 search-close fs-4">
+                    <i class="bi bi-x-lg"></i>
+                </button>
+            </div>
+            <div class="col-3 d-flex justify-content-end search-offset">
+                <a href="#" class="text-dark fs-3 d-inline px-2"><i class="bi bi-person"></i></a>
+                <a href="#" class="text-dark fs-4 d-inline px-2 align-self-center"
+                    ><i class="bi bi-heart"></i
+                ></a>
+                <a href="#" class="text-dark fs-4 d-inline px-2"><i class="bi bi-bag"></i></a>
             </div>
         </div>
-        <div class="col-4 d-flex justify-content-end">
-            <a href="#" class="text-dark fs-3 d-inline px-2"><i class="bi bi-person"></i></a>
-            <a href="#" class="text-dark fs-4 d-inline px-2 align-self-center"
-                ><i class="bi bi-heart"></i
-            ></a>
-            <a href="#" class="text-dark fs-4 d-inline px-2"><i class="bi bi-bag"></i></a>
+        <div class="row d-none search-list w-100 mt-2 mt-md-4">
+            <div class="col-8 offset-2">
+                <ul class="search-list-items list-unstyled text-dark">
+                    <li><a>Homem</a></li>
+                    <li><a>Mulher</a></li>
+                    <li><a>Adolescente</a></li>
+                    <li><a>Criança</a></li>
+                </ul>
+            </div>
         </div>
     </div>
 </nav>
