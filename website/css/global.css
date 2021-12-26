@@ -157,3 +157,15 @@ body {
 .has-transition {
     transition: 200ms;
 }
+
+.search-list {
+    z-index: 900;
+}
+
+.nav-behind-left-nav {
+    z-index: 901;
+}
+
+.left-navigation {
+    z-index: 990;
+}

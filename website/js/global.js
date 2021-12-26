@@ -42,6 +42,7 @@
                 var search = document.querySelector(".search-input");
                 var offset = document.querySelectorAll(".search-offset");
                 var closeButton = document.querySelector(".search-close");
+                var closeButtonAfter = document.querySelector(".search-close-after");
                 var searchList = document.querySelector(".search-list");
                 searchList.list = searchList.querySelector(".search-list-items");
 
@@ -52,14 +53,12 @@
                     var val = search.getAttribute("open");
                     if (val == "false" || val == null) {
                         search.setAttribute("open", "true");
-                        // offset.forEach((element) => {
-                        //     element.classList.add("d-none");
-                        // });
-                        // search.parentElement.classList.add("w-75");
                         closeButton.classList.remove("d-none");
                         searchList.classList.remove("d-none");
+                        closeButtonAfter.classList.add("d-none");
                     }
                 };
+
                 search.oninput = function () {
                     var items = [
                         "calções",
@@ -98,9 +97,25 @@
                     offset.forEach((element) => {
                         element.classList.remove("d-none");
                     });
-                    search.parentElement.classList.remove("w-75");
                     closeButton.classList.add("d-none");
                     searchList.classList.add("d-none");
+                    closeButtonAfter.classList.remove("d-none");
+                };
+
+                var leftNavClose = document.querySelector(".left-nav-close");
+                var leftNav = document.querySelector(".left-navigation");
+                var openNav = document.querySelector(".open-left-nav");
+                openNav.onclick = function () {
+                    leftNav.classList.add("animate__animated");
+                    leftNav.classList.add("animate__slideInLeft");
+                    leftNav.classList.remove("animate__slideOutLeft");
+                    // leftNav.classList.remove("d-none");
+                };
+
+                leftNavClose.onclick = function () {
+                    leftNav.classList.add("animate__animated");
+                    leftNav.classList.add("animate__slideOutLeft");
+                    // leftNav.classList.add("d-none");
                 };
             });
         }
@@ -115,6 +130,10 @@
     }
     window.customElements.define("x-loader", Loader);
 })(document, window);
+
+//
+// ─────────────────────────────────────────────────────────────────── LOADER ─────
+//
 
 !(function (document, window) {
     function loaderHide() {
@@ -148,6 +167,10 @@
         }, 200);
     };
 })(document, window);
+
+//
+// ─────────────────────────────────────────────────────────────── END LOADER ─────
+//
 
 function firstToUpper(string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
