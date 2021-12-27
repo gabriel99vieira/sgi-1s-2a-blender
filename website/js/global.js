@@ -35,6 +35,13 @@
     }
     window.customElements.define("x-product", Product);
 
+    window.newListItem = function newListItem(text) {
+        return (
+            '<li class="my-1"><a href="#" class="text-decoration-none text-dark">' +
+            text +
+            "</a></li>"
+        );
+    };
     class Navbar extends HTMLElement {
         constructor() {
             super();
@@ -109,13 +116,15 @@
                     leftNav.classList.add("animate__animated");
                     leftNav.classList.add("animate__slideInLeft");
                     leftNav.classList.remove("animate__slideOutLeft");
-                    // leftNav.classList.remove("d-none");
+                    leftNav.classList.remove("d-none");
                 };
 
                 leftNavClose.onclick = function () {
                     leftNav.classList.add("animate__animated");
                     leftNav.classList.add("animate__slideOutLeft");
-                    // leftNav.classList.add("d-none");
+                    setTimeout(function () {
+                        leftNav.classList.add("d-none");
+                    }, 500);
                 };
             });
         }
@@ -174,10 +183,4 @@
 
 function firstToUpper(string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
-}
-
-function newListItem(text) {
-    return (
-        '<li class="my-1"><a href="#" class="text-decoration-none text-dark">' + text + "</a></li>"
-    );
 }
