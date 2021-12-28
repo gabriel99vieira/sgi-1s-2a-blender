@@ -1,3 +1,7 @@
+//
+// ───────────────────────────────────────────────────────── COMPONENT LOADER ─────
+//
+
 !(function (document, window) {
     function loadInto(root, page, execute = (data) => {}) {
         fetch(page)
@@ -25,10 +29,10 @@
                     d.querySelector(".card-title").innerText = d.getAttribute("title");
                 }
                 if (d.getAttribute("price")) {
-                    d.querySelector(".card-title").innerText = d.getAttribute("price");
+                    d.querySelector(".card-price").innerText = d.getAttribute("price");
                 }
                 if (d.getAttribute("discount")) {
-                    d.querySelector(".card-title").innerText = d.getAttribute("discount");
+                    d.querySelector(".card-discount").innerText = d.getAttribute("discount");
                 }
             });
         }
@@ -124,7 +128,7 @@
                     leftNav.classList.add("animate__slideOutLeft");
                     setTimeout(function () {
                         leftNav.classList.add("d-none");
-                    }, 500);
+                    }, 800);
                 };
             });
         }
@@ -139,6 +143,10 @@
     }
     window.customElements.define("x-loader", Loader);
 })(document, window);
+
+//
+// ───────────────────────────────────────────────────── END COMPONENT LOADER ─────
+//
 
 //
 // ─────────────────────────────────────────────────────────────────── LOADER ─────
@@ -179,6 +187,10 @@
 
 //
 // ─────────────────────────────────────────────────────────────── END LOADER ─────
+//
+
+//
+// ─────────────────────────────────────────────────────────────────── GLOBAL ─────
 //
 
 function firstToUpper(string) {

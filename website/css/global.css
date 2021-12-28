@@ -168,4 +168,5 @@ body {
 
 .left-navigation {
     z-index: 990;
+    max-width: 20% !important;
 }
