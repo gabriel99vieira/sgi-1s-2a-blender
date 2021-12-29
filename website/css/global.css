@@ -170,3 +170,10 @@ body {
     z-index: 990;
     max-width: 20% !important;
 }
+
+.choose-position-canvas:hover {
+    transition: 200ms;
+    transform: scale(1.2);
+    z-index: 999;
+    cursor: pointer;
+}

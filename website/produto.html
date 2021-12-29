@@ -22,11 +22,35 @@
         ></script>
         <link rel="shortcut icon" href="./images/favicon.png" />
         <script src="./js/global.js"></script>
+        <script src="../node_modules/three/build/three.min.js"></script>
+        <script src="../node_modules/three/examples//js/loaders/GLTFLoader.js"></script>
+        <script src="../node_modules/three/examples/js/libs/stats.min.js"></script>
+        <script src="../node_modules/three/examples/js/controls/OrbitControls.js"></script>
+
+        <script type="module" src="./js/product.js"></script>
         <link rel="stylesheet" href="./css/global.css" />
-        <title>Document</title>
+        <title>La Redoute - produto</title>
     </head>
     <body>
         <x-loader></x-loader>
         <x-navbar></x-navbar>
+
+        <div class="container pt-5">
+            <div class="row pt-5">
+                <div class="col-12 col-md-2">
+                    <div class="d-grid row-cols-1">
+                        <canvas class="choose-position-canvas" id="initial-canvas"></canvas>
+                        <canvas class="choose-position-canvas" id="front-canvas"></canvas>
+                        <canvas class="choose-position-canvas" id="back-canvas"></canvas>
+                        <canvas class="choose-position-canvas" id="top-canvas"></canvas>
+                        <canvas class="choose-position-canvas" id="bottom-canvas"></canvas>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 text-center">
+                    <canvas id="product-canvas"></canvas>
+                </div>
+                <div class="col-12 col-md-4"></div>
+            </div>
+        </div>
     </body>
 </html>
