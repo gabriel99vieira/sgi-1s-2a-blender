@@ -15,6 +15,8 @@
     var bottomCanvas = document.getElementById("bottom-canvas");
 
     var main;
+    var moveCamera = new THREE.Vector3(0, 0, 0);
+    var canMoveCamera = false;
 
     var last = window.onload;
     window.onload = function () {
@@ -78,11 +80,20 @@
         Renderer.toneMappingExposure = 1;
         Renderer.outputEncoding = THREE.sRGBEncoding;
 
-        var Controls;
+        var interact = null;
+        var Controls = null;
         if (!isStatic) {
             Controls = new THREE.OrbitControls(Camera, Renderer.domElement);
             Controls.target.set(0, 0, 0);
-            // Controls.enablePan = false;
+            Controls.enableDamping = true;
+            Controls.listenToKeyEvents(canvas);
+
+            canvas.onmousemove = function () {
+                canMoveCamera = false;
+            };
+            canvas.onclick = function () {
+                canMoveCamera = false;
+            };
         }
 
         // const Axes = new THREE.AxesHelper();
@@ -130,22 +141,27 @@
         }
 
         function animate() {
-            makeRender();
             requestAnimationFrame(animate);
-            // if (animationMizer) {
-            //     animationMixer.update(clock.getDelta());
-            //     clock.autoStart = false;
-            // }
 
-            // GlobalCanvas.camera.position.lerp(0.05);
+            makeRender();
+
+            if (!isStatic) {
+                if (canMoveCamera) {
+                    console.log("Moving camera");
+                    Camera.position.lerp(moveCamera, 0.02);
+                }
+                Controls.update();
+            }
         }
 
         animate();
 
         if (hasOnclick) {
             canvas.onclick = function () {
-                GlobalCanvas.camera.position.set(x, y, z);
-                GlobalCanvas.controls.update();
+                canMoveCamera = true;
+                moveCamera.set(x, y, z);
+                // Camera.position.set(x, y, z);
+                console.log(`Camera position to: (${x} , ${y}, ${z})`);
             };
         }
 

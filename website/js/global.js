@@ -19,19 +19,19 @@
         constructor() {
             super();
             loadInto(this, "./components/produto.html", function (d) {
-                if (d.getAttribute("image")) {
+                if (d.hasAttribute("image")) {
                     d.querySelector(".card-img-top").src = d.getAttribute("image");
                 }
-                if (d.getAttribute("brand")) {
+                if (d.hasAttribute("brand")) {
                     d.querySelector(".card-brand").innerText = d.getAttribute("brand");
                 }
-                if (d.getAttribute("title")) {
+                if (d.hasAttribute("title")) {
                     d.querySelector(".card-title").innerText = d.getAttribute("title");
                 }
-                if (d.getAttribute("price")) {
+                if (d.hasAttribute("price")) {
                     d.querySelector(".card-price").innerText = d.getAttribute("price");
                 }
-                if (d.getAttribute("discount")) {
+                if (d.hasAttribute("discount")) {
                     d.querySelector(".card-discount").innerText = d.getAttribute("discount");
                 }
             });
@@ -49,7 +49,9 @@
     class Navbar extends HTMLElement {
         constructor() {
             super();
-            loadInto(this, "./components/navbar.html", function () {
+            loadInto(this, "./components/navbar.html", function (data) {
+                var whenOpenLimitsToSearch = false;
+
                 var search = document.querySelector(".search-input");
                 var offset = document.querySelectorAll(".search-offset");
                 var closeButton = document.querySelector(".search-close");
@@ -61,12 +63,17 @@
                 searchList.classList.add("d-none");
 
                 search.onclick = function () {
+                    data.hasAttribute("restrict");
                     var val = search.getAttribute("open");
                     if (val == "false" || val == null) {
                         search.setAttribute("open", "true");
                         closeButton.classList.remove("d-none");
                         searchList.classList.remove("d-none");
                         closeButtonAfter.classList.add("d-none");
+
+                        if (data.hasAttribute("restrict") || whenOpenLimitsToSearch) {
+                            document.body.style.overflow = "hidden";
+                        }
                     }
                 };
 
@@ -111,6 +118,10 @@
                     closeButton.classList.add("d-none");
                     searchList.classList.add("d-none");
                     closeButtonAfter.classList.remove("d-none");
+
+                    if (data.hasAttribute("restrict") || whenOpenLimitsToSearch) {
+                        document.body.style.overflow = "";
+                    }
                 };
 
                 var leftNavClose = document.querySelector(".left-nav-close");
@@ -142,6 +153,36 @@
         }
     }
     window.customElements.define("x-loader", Loader);
+
+    class Stars extends HTMLElement {
+        constructor() {
+            super();
+            loadInto(this, "./components/stars.html", function (data) {
+                if (data.hasAttribute("has")) {
+                    var quantity = data.getAttribute("has");
+                    for (let i = 0; i < 5; i++) {
+                        var star = data.querySelector(".ratings").children[i];
+
+                        if (quantity >= 1) {
+                            star.classList.add("bi-star-fill");
+                            star.classList.remove("bi-star");
+                            star.classList.add("text-warning");
+                        } else if (quantity > 0) {
+                            star.classList.add("bi-star-half");
+                            star.classList.remove("bi-star");
+                            star.classList.add("text-warning");
+                        } else {
+                            // star.classList.add("bi-star-fill");
+                            // star.classList.remove("bi-star");
+                            star.classList.add("text-secondary");
+                        }
+                        quantity--;
+                    }
+                }
+            });
+        }
+    }
+    window.customElements.define("x-stars", Stars);
 })(document, window);
 
 //
