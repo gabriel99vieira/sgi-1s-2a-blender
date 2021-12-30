@@ -1,8 +1,8 @@
-// import * as THREE from "three";
-// import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
-// import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
+import * as THREE from "https://cdn.skypack.dev/three@0.136.0";
+import { OrbitControls } from "https://cdn.skypack.dev/three@0.136.0/examples/jsm/controls/OrbitControls.js";
+import { GLTFLoader } from "https://cdn.skypack.dev/three@0.136.0/examples/jsm/loaders/GLTFLoader.js";
 
-!(function (document, window) {
+!(function (document, window, THREE) {
     var last = window.onload;
     var settings = { width: 550, height: 550 };
     var left = { width: 100, height: 100 };
@@ -83,7 +83,7 @@
         var interact = null;
         var Controls = null;
         if (!isStatic) {
-            Controls = new THREE.OrbitControls(Camera, Renderer.domElement);
+            Controls = new OrbitControls(Camera, Renderer.domElement);
             Controls.target.set(0, 0, 0);
             Controls.enableDamping = true;
             Controls.listenToKeyEvents(canvas);
@@ -102,7 +102,7 @@
         // const Grid = new THREE.GridHelper();
         // Scene.add(Grid);
 
-        const loader = new THREE.GLTFLoader();
+        const loader = new GLTFLoader();
         loader.load(
             "./renders/workBenchM.gltf",
             (gltf) => {
@@ -172,4 +172,4 @@
 
         return instance;
     }
-})(document, window);
+})(document, window, THREE);

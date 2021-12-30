@@ -1,5 +1,7 @@
 # sgi-1s-2a-blender
 
+# **NPM will be removed and vscode extension [Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) will be used in index.html**
+
 <p>Management and Interaction Systems project</p>
 <p>(Sistemas de Gestão e Interação)</p>
 
