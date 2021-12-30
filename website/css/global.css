@@ -159,7 +159,8 @@ body {
 }
 
 .search-list {
-    z-index: 900;
+    z-index: 999;
+    height: 100vh;
 }
 
 .nav-behind-left-nav {
