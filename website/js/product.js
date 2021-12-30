@@ -88,9 +88,9 @@
             Controls.enableDamping = true;
             Controls.listenToKeyEvents(canvas);
 
-            canvas.onmousemove = function () {
-                canMoveCamera = false;
-            };
+            // canvas.onmousemove = function () {
+            //     canMoveCamera = false;
+            // };
             canvas.onclick = function () {
                 canMoveCamera = false;
             };
