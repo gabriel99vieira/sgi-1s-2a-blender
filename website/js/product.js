@@ -22,9 +22,9 @@ import { GLTFLoader } from "https://cdn.skypack.dev/three@0.136.0/examples/jsm/l
     window.onload = function () {
         main = renderOn(canvas, settings, 10, 8, 14, false);
         renderOn(initialCanvas, left, 10, 8, 14, true, null, true);
-        renderOn(frontCanvas, left, 0, 8, 14, true, null, true);
-        renderOn(backCanvas, left, 0, 8, -14, true, null, true);
-        renderOn(topCanvas, left, 0, 18, 0, true, null, true);
+        renderOn(frontCanvas, left, 0, 10, 16, true, null, true);
+        renderOn(backCanvas, left, 0, 10, -16, true, null, true);
+        renderOn(topCanvas, left, 0, 20, 0, true, null, true);
         renderOn(
             bottomCanvas,
             left,
@@ -33,7 +33,9 @@ import { GLTFLoader } from "https://cdn.skypack.dev/three@0.136.0/examples/jsm/l
             0,
             true,
             function () {
-                last();
+                setTimeout(function () {
+                    last();
+                }, 200);
             },
             true
         );
@@ -56,10 +58,20 @@ import { GLTFLoader } from "https://cdn.skypack.dev/three@0.136.0/examples/jsm/l
             camera: null,
             renderer: null,
             controls: null,
+            animations: null,
         };
 
-        var GLTFAnimations = new Array();
+        var animateRange = null;
         var Animations = new Array();
+        var animationMixer = new THREE.AnimationMixer();
+        if (!isStatic) {
+            animateRange = document.querySelector("#animationRange");
+            animateRange.setAttribute("min", 0);
+            animateRange.setAttribute("max", 100);
+            animateRange.setAttribute("step", 0.01);
+            animateRange.setAttribute("value", 0);
+            window.clock = 0;
+        }
 
         let align = 3;
 
@@ -70,7 +82,7 @@ import { GLTFLoader } from "https://cdn.skypack.dev/three@0.136.0/examples/jsm/l
         Camera.position.set(x, y, z);
         Camera.lookAt(0, align, 0);
 
-        const Renderer = new THREE.WebGLRenderer({ canvas: canvas });
+        const Renderer = new THREE.WebGLRenderer({ canvas: canvas, antialias: true });
         Renderer.shadowMap.enabled = true;
         Renderer.shadowMap.type = THREE.PCFSoftShadowMap;
         Renderer.setSize(settings.width, settings.height);
@@ -88,35 +100,56 @@ import { GLTFLoader } from "https://cdn.skypack.dev/three@0.136.0/examples/jsm/l
             Controls.enableDamping = true;
             Controls.listenToKeyEvents(canvas);
 
-            // canvas.onmousemove = function () {
-            //     canMoveCamera = false;
-            // };
             canvas.onclick = function () {
                 canMoveCamera = false;
             };
         }
 
-        // const Axes = new THREE.AxesHelper();
-        // Scene.add(Axes);
-
-        // const Grid = new THREE.GridHelper();
-        // Scene.add(Grid);
-
         const loader = new GLTFLoader();
         loader.load(
             "./renders/workBenchM.gltf",
             (gltf) => {
-                // console.log(gltf);
                 Scene.add(gltf.scene);
-                // animationMixer = new THREE.AnimationMixer(gltf.scene);
 
                 gltf.scene.traverse(function (object) {});
 
-                // GLTFAnimations = gltf.animations;
+                if (!isStatic) {
+                    animationMixer = new THREE.AnimationMixer(gltf.scene);
+                    Animations.push(
+                        animationMixer.clipAction(
+                            THREE.AnimationClip.findByName(gltf.animations, "benchExtendAction")
+                        )
+                    );
+                    Animations.push(
+                        animationMixer.clipAction(
+                            THREE.AnimationClip.findByName(gltf.animations, "doorAction")
+                        )
+                    );
+                    Animations.push(
+                        animationMixer.clipAction(
+                            THREE.AnimationClip.findByName(gltf.animations, "door1Action")
+                        )
+                    );
+                    Animations.push(
+                        animationMixer.clipAction(
+                            THREE.AnimationClip.findByName(gltf.animations, "legExtend1Action")
+                        )
+                    );
 
-                // Animations.push(
-                //     animationMixer.clipAction(THREE.AnimationClip.findByName(gltf.animations, "Wind"))
-                // );
+                    if (!isStatic) {
+                        var max = 0;
+                        for (let i = 0; i < Animations.length; i++) {
+                            Animations[i].play();
+                            Animations[i].paused = false;
+                            if (Animations[i]._clip.duration > max) {
+                                max = Animations[i]._clip.duration;
+                            }
+                        }
+
+                        console.log(max);
+                        animateRange.setAttribute("max", max - 0.01);
+                    }
+                }
             },
             (xhr) => {
                 console.log(Number((xhr.loaded / xhr.total) * 100).toFixed(0) + "% loaded");
@@ -129,9 +162,6 @@ import { GLTFLoader } from "https://cdn.skypack.dev/three@0.136.0/examples/jsm/l
             }
         );
 
-        var animationMixer = new THREE.AnimationMixer();
-        var clock = new THREE.Clock();
-
         var sun = new THREE.AmbientLight(0xffffff, 2);
         sun.position.set(0, 0, 0);
         Scene.add(sun);
@@ -141,17 +171,19 @@ import { GLTFLoader } from "https://cdn.skypack.dev/three@0.136.0/examples/jsm/l
         }
 
         function animate() {
-            requestAnimationFrame(animate);
-
             makeRender();
 
             if (!isStatic) {
                 if (canMoveCamera) {
-                    console.log("Moving camera");
-                    Camera.position.lerp(moveCamera, 0.02);
+                    Camera.position.lerp(moveCamera, 0.05);
                 }
                 Controls.update();
+
+                if (animationMixer) {
+                    animationMixer.setTime(window.clock);
+                }
             }
+            requestAnimationFrame(animate);
         }
 
         animate();
@@ -165,10 +197,19 @@ import { GLTFLoader } from "https://cdn.skypack.dev/three@0.136.0/examples/jsm/l
             };
         }
 
+        if (!isStatic) {
+            animateRange.oninput = function () {
+                let v = this.value;
+                console.log(v);
+                window.clock = v;
+            };
+        }
+
         instance.camera = Camera;
         instance.controls = Controls;
         instance.renderer = Renderer;
         instance.scene = Scene;
+        instance.animations = Animations;
 
         return instance;
     }

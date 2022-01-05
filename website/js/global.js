@@ -34,6 +34,12 @@
                 if (d.hasAttribute("discount")) {
                     d.querySelector(".card-discount").innerText = d.getAttribute("discount");
                 }
+                if (d.hasAttribute("href")) {
+                    d.querySelector(".card").style.cursor = "pointer";
+                    d.querySelector(".card").onclick = function () {
+                        window.location.href = d.getAttribute("href");
+                    };
+                }
             });
         }
     }

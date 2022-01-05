@@ -172,8 +172,10 @@ body {
     max-width: 20% !important;
 }
 
-.choose-position-canvas:hover {
+.choose-position-canvas {
     transition: 200ms;
+}
+.choose-position-canvas:hover {
     transform: scale(1.2);
     z-index: 999;
     cursor: pointer;
@@ -200,13 +202,25 @@ body {
     transform: scale(1.15);
     z-index: 999;
 }
-  
+
 .default-color {
     background: linear-gradient(90deg, #4e3c35 50%, rgb(231, 231, 231) 50%);
     cursor: pointer;
 }
-  
+
 .other-color {
     background: linear-gradient(90deg, #271f1c 50%, rgb(150, 149, 149) 50%);
     cursor: pointer;
+}
+
+.form-range::-webkit-slider-thumb {
+    background: black;
+}
+
+.form-range::-moz-range-thumb {
+    background: black;
+}
+
+.form-range::-ms-thumb {
+    background: black;
 }
