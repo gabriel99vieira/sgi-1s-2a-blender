@@ -84,7 +84,7 @@ import { GLTFLoader } from "https://cdn.skypack.dev/three@0.136.0/examples/jsm/l
         var Controls = null;
         if (!isStatic) {
             Controls = new OrbitControls(Camera, Renderer.domElement);
-            Controls.target.set(0, 0, 0);
+            Controls.target.set(0, 3, 0);
             Controls.enableDamping = true;
             Controls.listenToKeyEvents(canvas);
 
