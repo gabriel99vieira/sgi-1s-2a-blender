@@ -178,3 +178,12 @@ body {
     z-index: 999;
     cursor: pointer;
 }
+
+#product-canvas {
+    border: 0.75px solid #cbcbcb;
+}
+
+.choose-position-canvas {
+    border: 0.75px solid #cbcbcb;
+    margin-bottom: 12px;
+}
