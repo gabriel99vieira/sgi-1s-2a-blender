@@ -206,16 +206,19 @@ body {
     border: 2px solid #000000;
     transform: scale(1.15);
     z-index: 999;
+    cursor: pointer;
 }
 
 .default-color {
-    background: linear-gradient(90deg, #4e3c35 50%, rgb(231, 231, 231) 50%);
-    cursor: pointer;
+    background: linear-gradient(90deg, #4e3c35 50%, #e7e7e7 50%);
 }
 
 .other-color {
-    background: linear-gradient(90deg, #271f1c 50%, rgb(150, 149, 149) 50%);
-    cursor: pointer;
+    background: linear-gradient(90deg, #271f1c 50%, #969595 50%);
+}
+
+.even-other-color {
+    background: linear-gradient(90deg, #f9d9b4 50%, #1d1d1d 50%);
 }
 
 .form-range::-webkit-slider-thumb {
