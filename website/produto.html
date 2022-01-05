@@ -20,6 +20,7 @@
             integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
             crossorigin="anonymous"
         ></script>
+
         <link rel="shortcut icon" href="./images/favicon.png" />
         <script src="./js/global.js"></script>
         <script type="module" src="./js/product.js"></script>
@@ -43,7 +44,7 @@
                 </div>
                 <div class="col-12 col-md-6 text-center">
                     <canvas id="product-canvas"></canvas>
-                    <input type="range" class="form-range" id="animationRange" />
+                    <input type="range" class="form-range w-75" id="animationRange" />
                 </div>
                 <div class="col-12 col-md-4">
                     <div class="my-4">
@@ -51,32 +52,68 @@
                         <x-stars has="3.5" style="font-size: 0.9rem"></x-stars>
                     </div>
                     <span class="price">
-                        <span class="card-price" style="font-size: x-large;">79,99€</span>
+                        <span class="card-price" style="font-size: x-large">79,99€</span>
                         &nbsp;
                         <s class="card-discount">99,00€</s>
                     </span>
                     <div class="my-4">
                         <h5>Cor selecionada</h5>
-                        <div style="display: flex;">
-                            <div class='color-picker default-color'><a href="#"></a></div>
-                            <div class='color-picker other-color'><a href="#"></a></div>
+                        <div style="display: flex">
+                            <div
+                                class="color-picker default-color"
+                                primary="Wood051_1K_Color.png"
+                                secondary="Marble018_1K_Color.jpg"
+                            >
+                                <a href="#"></a>
+                            </div>
+                            <div
+                                class="color-picker other-color"
+                                primary="dark-wood.jpg"
+                                secondary="Marble018_1K_Color.jpg"
+                            >
+                                <a href="#"></a>
+                            </div>
                         </div>
                     </div>
                     <div class="my-4">
                         <h5>Quantidade</h5>
                         <div class="quantity">
-                            <button class="btn minus-btn" type="button" style="border-top-left-radius: 10px; border-bottom-left-radius: 10px; border-right: none;">-</button>
-                            <input type="text" id="quantity" value="1">
-                            <button class="btn plus-btn" type="button" style="border-top-right-radius: 10px; border-bottom-right-radius: 10px; border-left: none;">+</button>
+                            <button
+                                class="btn minus-btn"
+                                type="button"
+                                style="
+                                    border-top-left-radius: 10px;
+                                    border-bottom-left-radius: 10px;
+                                    border-right: none;
+                                "
+                            >
+                                -
+                            </button>
+                            <input type="text" id="quantity" value="1" />
+                            <button
+                                class="btn plus-btn"
+                                type="button"
+                                style="
+                                    border-top-right-radius: 10px;
+                                    border-bottom-right-radius: 10px;
+                                    border-left: none;
+                                "
+                            >
+                                +
+                            </button>
                         </div>
                     </div>
                     <div class="add-cart-section">
-                        <button type="button" class="btn btn-dark add-cart">Adicionar ao carrinho</button>
+                        <button type="button" class="btn btn-dark add-cart">
+                            Adicionar ao carrinho
+                        </button>
                         &nbsp;
-                        <button class="btn heart-btn" type="button"><i class="bi bi-heart"></i></button>
+                        <button class="btn heart-btn" type="button">
+                            <i class="bi bi-heart"></i>
+                        </button>
                     </div>
-                    <br>
-                    <p style="font-size: small; padding-left: 5px;">Info trocas e devoluções</p>
+                    <br />
+                    <p style="font-size: small; padding-left: 5px">Info trocas e devoluções</p>
                 </div>
             </div>
         </div>

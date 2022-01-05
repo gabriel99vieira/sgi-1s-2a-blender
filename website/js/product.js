@@ -14,6 +14,8 @@ import { GLTFLoader } from "https://cdn.skypack.dev/three@0.136.0/examples/jsm/l
     var topCanvas = document.getElementById("top-canvas");
     var bottomCanvas = document.getElementById("bottom-canvas");
 
+    var pickers = document.querySelectorAll(".color-picker");
+
     var main;
     var moveCamera = new THREE.Vector3(0, 0, 0);
     var canMoveCamera = false;
@@ -35,7 +37,7 @@ import { GLTFLoader } from "https://cdn.skypack.dev/three@0.136.0/examples/jsm/l
             function () {
                 setTimeout(function () {
                     last();
-                }, 200);
+                }, 500);
             },
             true
         );
@@ -83,20 +85,15 @@ import { GLTFLoader } from "https://cdn.skypack.dev/three@0.136.0/examples/jsm/l
         Camera.lookAt(0, align, 0);
 
         const Renderer = new THREE.WebGLRenderer({ canvas: canvas, antialias: true });
-        Renderer.shadowMap.enabled = true;
-        Renderer.shadowMap.type = THREE.PCFSoftShadowMap;
         Renderer.setSize(settings.width, settings.height);
         Renderer.setPixelRatio(window.devicePixelRatio);
         Renderer.render(Scene, Camera);
-        Renderer.toneMapping = THREE.ACESFilmicToneMapping;
-        Renderer.toneMappingExposure = 1;
-        Renderer.outputEncoding = THREE.sRGBEncoding;
 
         var interact = null;
         var Controls = null;
         if (!isStatic) {
             Controls = new OrbitControls(Camera, Renderer.domElement);
-            Controls.target.set(0, 3, 0);
+            Controls.target.set(0, align, 0);
             Controls.enableDamping = true;
             Controls.listenToKeyEvents(canvas);
 
@@ -111,9 +108,21 @@ import { GLTFLoader } from "https://cdn.skypack.dev/three@0.136.0/examples/jsm/l
             (gltf) => {
                 Scene.add(gltf.scene);
 
-                gltf.scene.traverse(function (object) {});
+                gltf.scene.traverse(function (object) {
+                    if (object instanceof THREE.Light) {
+                        object.visible = false;
+                    }
+                    if (object instanceof THREE.Mesh) {
+                        object.material.metalness = 0;
+                        object.material.map.encoding = 3000;
+                        object.material.map.flipY = true;
+                        object.material.map.wrapS = 1001;
+                        object.material.map.wrapT = 1001;
+                    }
+                });
 
                 if (!isStatic) {
+                    console.log(gltf);
                     animationMixer = new THREE.AnimationMixer(gltf.scene);
                     Animations.push(
                         animationMixer.clipAction(
@@ -145,8 +154,6 @@ import { GLTFLoader } from "https://cdn.skypack.dev/three@0.136.0/examples/jsm/l
                                 max = Animations[i]._clip.duration;
                             }
                         }
-
-                        console.log(max);
                         animateRange.setAttribute("max", max - 0.01);
                     }
                 }
@@ -162,8 +169,8 @@ import { GLTFLoader } from "https://cdn.skypack.dev/three@0.136.0/examples/jsm/l
             }
         );
 
-        var sun = new THREE.AmbientLight(0xffffff, 2);
-        sun.position.set(0, 0, 0);
+        var sun = new THREE.AmbientLight("white", 1.1);
+        sun.position.set(0, 0, 4);
         Scene.add(sun);
 
         function makeRender() {
@@ -200,7 +207,6 @@ import { GLTFLoader } from "https://cdn.skypack.dev/three@0.136.0/examples/jsm/l
         if (!isStatic) {
             animateRange.oninput = function () {
                 let v = this.value;
-                console.log(v);
                 window.clock = v;
             };
         }
@@ -212,5 +218,47 @@ import { GLTFLoader } from "https://cdn.skypack.dev/three@0.136.0/examples/jsm/l
         instance.animations = Animations;
 
         return instance;
+    }
+
+    pickers.forEach((picker) => {
+        picker.onclick = function () {
+            setWoodMaterial(this.getAttribute("primary"));
+            setBenchMaterial(this.getAttribute("secondary"));
+        };
+    });
+
+    function setWoodMaterial(color) {
+        setObjMaterial("door", color);
+        setObjMaterial("door1", color);
+        setObjMaterial("workBench", color);
+        setObjMaterial("legExtend1", color);
+        setObjMaterial("benchExtend", color);
+    }
+
+    function setBenchMaterial(color) {
+        setObjMaterial("stoneBench", color);
+    }
+
+    function setObjMaterial(obj, material) {
+        const loader = new THREE.TextureLoader();
+
+        loader.load(
+            "./renders/materials/" + material,
+
+            function (texture) {
+                // var m = new THREE.MeshStandardMaterial({
+                //     map: texture,
+                // });
+
+                // m.roughness = 0.5;
+                // m.side = 2;
+                // m.metalness = 0;
+                GlobalCanvas.scene.getObjectByName(obj).material.map = texture;
+            },
+            undefined,
+            function (err) {
+                console.error("An error happened.");
+            }
+        );
     }
 })(document, window, THREE);
