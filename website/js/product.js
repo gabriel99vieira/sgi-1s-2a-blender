@@ -64,7 +64,7 @@ import { GLTFLoader } from "https://cdn.skypack.dev/three@0.136.0/examples/jsm/l
         let align = 3;
 
         const Scene = new THREE.Scene();
-        Scene.background = new THREE.Color("white");
+        Scene.background = new THREE.Color("#eeeeee");
 
         const Camera = new THREE.PerspectiveCamera(55, settings.width / settings.height, 0.1, 1000);
         Camera.position.set(x, y, z);
