@@ -20,6 +20,7 @@
             integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
             crossorigin="anonymous"
         ></script>
+        <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
 
         <link rel="shortcut icon" href="./images/favicon.png" />
         <script src="./js/global.js"></script>
@@ -31,7 +32,7 @@
         <x-loader></x-loader>
         <x-navbar></x-navbar>
 
-        <div class="container" style="padding-top: 8em">
+        <div class="container pb-5 mb-5" style="padding-top: 8em">
             <div class="row pt-5">
                 <div class="col-12 col-md-2">
                     <div class="d-grid row-cols-1">
@@ -123,6 +124,112 @@
                     <p style="font-size: small; padding-left: 5px">Info trocas e devoluções</p>
                 </div>
             </div>
+            <div class="row w-100" style="margin-top: 8em; margin-bottom: 8em">
+                <!-- Slider main container -->
+                <div class="swiper" style="height: 360px; overflow: hidden">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <x-product
+                                image="./images/products/polo3.jpg"
+                                brand="La Redoute"
+                                title="Polo de mangas curtas às riscas, em algodão bio"
+                                price="18,60€"
+                                discount="31,00€"
+                                href="#"
+                            ></x-product>
+                        </div>
+                        <div class="swiper-slide">
+                            <x-product
+                                image="./images/products/polo4.jpg"
+                                brand="La Redoute"
+                                title="Polo de mangas curtas às riscas, em algodão bio"
+                                price="18,60€"
+                                discount="31,00€"
+                                href="#"
+                            ></x-product>
+                        </div>
+                        <div class="swiper-slide">
+                            <x-product
+                                image="./images/products/polo5.jpg"
+                                brand="La Redoute"
+                                title="Polo de mangas curtas às riscas, em algodão bio"
+                                price="18,60€"
+                                discount="31,00€"
+                                href="#"
+                            ></x-product>
+                        </div>
+                        <div class="swiper-slide">
+                            <x-product
+                                image="./images/products/polo1.jpg"
+                                brand="La Redoute"
+                                title="Polo de mangas curtas às riscas, em algodão bio"
+                                price="18,60€"
+                                discount="31,00€"
+                                href="#"
+                            ></x-product>
+                        </div>
+                        <div class="swiper-slide">
+                            <x-product
+                                image="./images/products/polo3.jpg"
+                                brand="La Redoute"
+                                title="Polo de mangas curtas às riscas, em algodão bio"
+                                price="18,60€"
+                                discount="31,00€"
+                                href="#"
+                            ></x-product>
+                        </div>
+                        <div class="swiper-slide">
+                            <x-product
+                                image="./images/products/polo2.jpg"
+                                brand="La Redoute"
+                                title="Polo de mangas curtas às riscas, em algodão bio"
+                                price="18,60€"
+                                discount="31,00€"
+                                href="#"
+                            ></x-product>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row pt-5">
+                <div class="col-12 col-md-6">
+                    <h3 class="pb-3">Descrição</h3>
+                    <p class="pb-3">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla erat ante,
+                        tempus eget nibh at, consectetur blandit libero
+                    </p>
+                    <p>
+                        Ut pellentesque magna elit, nec cursus justo cursus sit amet. Integer turpis
+                        lacus, interdum id ullamcorper id, faucibus quis nisi. Nulla leo ante,
+                        sagittis pulvinar eros vitae, tincidunt maximus mauris. Quisque nec quam
+                        imperdiet, pharetra sem convallis, volutpat augue. Donec nec massa enim.
+                        Cras sed bibendum nulla, sit amet dignissim sem. Curabitur non sodales
+                        mauris. Praesent egestas, enim id consectetur tristique, augue tortor
+                        pretium velit, scelerisque hendrerit augue odio vel orci. Nam lacinia nisl
+                        sed tincidunt commodo. Nulla euismod vehicula nulla lacinia commodo. Nulla
+                        facilisi. Vivamus condimentum luctus finibus.
+                    </p>
+
+                    <h5 class="py-3">Características</h5>
+                    <h5 class="py-3">Dimensões</h5>
+                    <h5 class="py-3">Cores</h5>
+                    <h5 class="py-3">Outros...</h5>
+                </div>
+                <div class="col-12 col-md-2"></div>
+                <div class="col-12 col-md-4">
+                    <img src="./images/descricao.png" alt="" />
+                </div>
+            </div>
         </div>
+
+        <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+        <script>
+            var swiper = new Swiper(".swiper", {
+                slidesPerView: 5,
+                spaceBetween: 30,
+                freeMode: true,
+                loop: true,
+            });
+        </script>
     </body>
 </html>

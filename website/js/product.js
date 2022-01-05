@@ -122,7 +122,7 @@ import { GLTFLoader } from "https://cdn.skypack.dev/three@0.136.0/examples/jsm/l
                 });
 
                 if (!isStatic) {
-                    console.log(gltf);
+                    // console.log(gltf);
                     animationMixer = new THREE.AnimationMixer(gltf.scene);
                     Animations.push(
                         animationMixer.clipAction(
