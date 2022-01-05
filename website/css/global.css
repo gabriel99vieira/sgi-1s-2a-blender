@@ -210,3 +210,52 @@ body {
     background: linear-gradient(90deg, #271f1c 50%, rgb(150, 149, 149) 50%);
     cursor: pointer;
 }
+
+.quantity {
+    display: flex;
+    -webkit-box-shadow: 4px 3px 8px 1px #969696;
+    width: fit-content;
+    border-radius: 15px;
+}
+
+.quantity button {
+    width: 45px;
+    height: 45px;
+    border: 1px solid #000;
+    color: #000;
+    border-radius: 0;
+    background: #fff;
+}
+
+.quantity button:hover {
+    font-size: 15px;
+    font-weight: bolder; 
+} 
+
+.quantity input {
+    border: none;
+    border-top: 1px solid #000;
+    border-bottom: 1px solid #000;
+    text-align: center;
+    width: 100px;
+    font-size: 15px;
+    color: #000;
+    font-weight: 300;
+}
+
+.add-cart {
+    border-radius: 154px;
+    padding: 10px 25px 10px 25px;
+}
+
+.add-cart-section {
+    margin-top: 60px;
+}
+
+.heart-btn i {
+    font-size: xx-large;
+}
+
+.heart-btn i:hover {
+    color: red; 
+}
