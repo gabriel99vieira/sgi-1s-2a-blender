@@ -39,16 +39,29 @@
 
             <div class="row mt-5 mb-5">
                 <div class="col-9 offset-2 mt-3">
-                    <img src="./images/index/img1.png" alt="" />
-                    <img src="./images/index/img2.png" alt="" />
-                    <img src="./images/index/img3.png" alt="" />
+                    <img class="go-to-product" src="./images/index/img1.png" alt="" />
+                    <img class="go-to-product" src="./images/index/img2.png" alt="" />
+                    <img class="go-to-product" src="./images/index/img3.png" alt="" />
                 </div>
                 <div class="col-9 offset-2 mt-3">
-                    <img src="./images/index/img4.png" alt="" />
-                    <img src="./images/index/img5.png" alt="" />
-                    <img src="./images/index/img6.png" alt="" />
+                    <img class="go-to-product" src="./images/index/img4.png" alt="" />
+                    <img class="go-to-product" src="./images/index/img5.png" alt="" />
+                    <img class="go-to-product" src="./images/index/img6.png" alt="" />
                 </div>
             </div>
         </div>
+
+        <style>
+            .go-to-product {
+                cursor: pointer;
+            }
+        </style>
+        <script>
+            document.querySelectorAll(".go-to-product").forEach((e) => {
+                e.onclick = function () {
+                    window.location.href = "./produto.html";
+                };
+            });
+        </script>
     </body>
 </html>
