@@ -303,3 +303,28 @@ body {
 .list-items-pointer li:hover {
     font-weight: bold;
 }
+
+/*
+ * ──────────────────────────────────────────────────────────────── SCROLLBAR ─────
+ */
+::-webkit-scrollbar {
+    width: 20px;
+    height: 20px;
+}
+::-webkit-scrollbar-thumb {
+    background: #000000;
+    border: 4.1px solid #ffffff;
+    border-radius: 30px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #707070;
+}
+::-webkit-scrollbar-track {
+    background: #ffffff;
+    border: 6px solid #ffffff;
+    border-radius: 13px;
+    box-shadow: inset 3px 3px 21px 0px #ffffff;
+}
+/*
+ * ──────────────────────────────────────────────────────────── END SCROOLBAR ─────
+ */
