@@ -40,6 +40,10 @@
                         window.location.href = d.getAttribute("href");
                     };
                 }
+                var extra = d.querySelectorAll(".produto-in-grid");
+                if (extra.length == 2) {
+                    extra[1].remove();
+                }
             });
         }
     }
@@ -112,6 +116,12 @@
                                 count++;
                                 searchList.list.innerHTML += newListItem(firstToUpper(items[i]));
                             }
+                        }
+
+                        if (count == 0) {
+                            searchList.list.innerHTML += newListItem(
+                                firstToUpper('nada encontrado :( com a chave "' + this.value + '"')
+                            );
                         }
                     }
                 };
