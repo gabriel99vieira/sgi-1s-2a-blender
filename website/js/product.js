@@ -226,8 +226,13 @@ import { GLTFLoader } from "https://cdn.skypack.dev/three@0.136.0/examples/jsm/l
         picker.onclick = function () {
             setWoodMaterial(this.getAttribute("primary"));
             setBenchMaterial(this.getAttribute("secondary"));
+            setColorName(this.getAttribute("name"));
         };
     });
+
+    function setColorName(name) {
+        document.getElementById("selected-color").innerText = firstToUpper(name);
+    }
 
     function setWoodMaterial(color) {
         setObjMaterial("door", color);
