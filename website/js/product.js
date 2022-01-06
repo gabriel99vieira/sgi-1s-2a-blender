@@ -88,6 +88,8 @@ import { GLTFLoader } from "https://cdn.skypack.dev/three@0.136.0/examples/jsm/l
         Renderer.setSize(settings.width, settings.height);
         Renderer.setPixelRatio(window.devicePixelRatio);
         Renderer.render(Scene, Camera);
+        Renderer.toneMapping = THREE.ACESFilmicToneMapping;
+        Renderer.toneMappingExposure = 1;
 
         var interact = null;
         var Controls = null;
@@ -169,7 +171,7 @@ import { GLTFLoader } from "https://cdn.skypack.dev/three@0.136.0/examples/jsm/l
             }
         );
 
-        var sun = new THREE.AmbientLight("white", 1.1);
+        var sun = new THREE.AmbientLight("white", 1.2);
         sun.position.set(0, 0, 4);
         Scene.add(sun);
 
