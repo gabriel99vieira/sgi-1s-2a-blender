@@ -1,9 +1,9 @@
 # sgi-1s-2a-blender
 
-# **NPM will be removed and vscode extension [Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) will be used in index.html**
-
-<p>Management and Interaction Systems project</p>
+<center>
+<h2>Management and Interaction Systems project</h2>
 <p>(Sistemas de Gestão e Interação)</p>
+</center>
 
 Authors:
 
@@ -12,33 +12,14 @@ Authors:
 
 <br>
 
-## Installation
-
-This project uses the npm dependency manager
-
-```bash
-sudo apt install nodejs
-```
-
-Or install node on windows using [**this link**](https://nodejs.org)
-
-Inside the **`/website`** folder run the following command to start installing the dependencies
-
-```bash
-npm i
-```
-
-<br>
-
 ## Running the project
 
-Inside the **`/website`** directory you can run the npm script to launch the local server
+!! This project executes with the **[Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer)** extension for visual studio code !!
 
-```npm
-npm run start
-```
+Inside the **`/website`** directory you can right click in the index.html file and select **`open with live server`**
 
-Now the website is accessible at [**http://127.0.0.1:8000**](http://127.0.0.1:8000) in your browser <small>[**http://localhost:8000**](http://localhost:8000)</small>
+The application will open in your default browser in [http://127.0.0.1:5500/website/index.html](http://127.0.0.1:5500/website/index.html)
+We recommend using a chromium based browser
 
 <br>
 
