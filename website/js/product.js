@@ -3,7 +3,6 @@ import { OrbitControls } from "https://cdn.skypack.dev/three@0.136.0/examples/js
 import { GLTFLoader } from "https://cdn.skypack.dev/three@0.136.0/examples/jsm/loaders/GLTFLoader.js";
 
 !(function (document, window, THREE) {
-    var last = window.onload;
     var settings = { width: 550, height: 550 };
     var left = { width: 100, height: 100 };
 
