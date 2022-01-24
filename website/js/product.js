@@ -99,7 +99,13 @@ import { GLTFLoader } from "https://cdn.skypack.dev/three@0.136.0/examples/jsm/l
             Controls.enableDamping = true;
             Controls.listenToKeyEvents(canvas);
 
-            canvas.onclick = function () {
+            // canvas.onclick = function () {
+            //     canMoveCamera = false;
+            // };
+            canvas.onwheel = function () {
+                canMoveCamera = false;
+            };
+            canvas.onmousedown = function () {
                 canMoveCamera = false;
             };
         }
